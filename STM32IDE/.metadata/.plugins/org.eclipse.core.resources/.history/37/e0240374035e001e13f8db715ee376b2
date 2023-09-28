@@ -90,11 +90,7 @@ int main(void)
 	  RED, YELLOW
   };
   int counter = 2;
-  enum Color state = RED;
-
-  // RESET STATE
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
+  Color state = RED;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,7 +117,6 @@ int main(void)
 	  default:
 		  break;
 	  }
-	  counter = counter - 1;
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
