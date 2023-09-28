@@ -111,7 +111,6 @@ int main(void)
 		  hour++;
 	  }
 	  if(hour >= 12) hour = 0;
-
 	  setNumberOnClock(second / 5);
 	  setNumberOnClock(minute / 5);
 	  setNumberOnClock(hour);

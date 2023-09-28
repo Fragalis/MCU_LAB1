@@ -102,16 +102,11 @@ int main(void)
   while (1)
   {
 	  clearAllClock();
-	  if(second >= 60) {
-		  second = 0;
-		  minute++;
-	  }
 	  if(minute >= 60) {
 		  minute = 0;
 		  hour++;
 	  }
 	  if(hour >= 12) hour = 0;
-
 	  setNumberOnClock(second / 5);
 	  setNumberOnClock(minute / 5);
 	  setNumberOnClock(hour);

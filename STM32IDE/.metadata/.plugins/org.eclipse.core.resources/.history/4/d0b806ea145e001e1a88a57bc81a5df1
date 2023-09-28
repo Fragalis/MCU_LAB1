@@ -88,9 +88,11 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
+  int counter = 0;
   int second = 0;
   int minute = 0;
   int hour = 0;
+  int MAX_SECONDS = 86400;
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7
                           |GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11
                           |GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_SET);
@@ -101,22 +103,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  if(counter >= MAX_SECONDS) counter = 0;
 	  clearAllClock();
-	  if(second >= 60) {
-		  second = 0;
-		  minute++;
-	  }
-	  if(minute >= 60) {
-		  minute = 0;
-		  hour++;
-	  }
-	  if(hour >= 12) hour = 0;
-
-	  setNumberOnClock(second / 5);
-	  setNumberOnClock(minute / 5);
-	  setNumberOnClock(hour);
-
-	  second++;
+	  second = (counter % 60) / 5;
+	  minute = ((counter / 60) % 60) / 5;
+	  hour = (counter / 60) / 60;
+	  setNumberOnClock(counter++);
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
