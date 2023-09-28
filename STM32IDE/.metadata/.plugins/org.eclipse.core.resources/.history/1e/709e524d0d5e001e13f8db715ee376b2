@@ -91,6 +91,7 @@ int main(void)
 	  GREEN1_RED2, YELLOW1_RED2
   };
 
+  int counter = 0;
   int counter1 = 5;
   int counter2 = 3;
   enum Color state = RED1_GREEN2;
@@ -105,6 +106,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  display7SEG(counter1);
 	  switch (state) {
 	  case RED1_GREEN2:
 		  if(counter2 <= 0) {
@@ -158,7 +160,6 @@ int main(void)
 	  }
 	  counter1 = counter1 - 1;
 	  counter2 = counter2 - 1;
-	  display7SEG(counter1);
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 

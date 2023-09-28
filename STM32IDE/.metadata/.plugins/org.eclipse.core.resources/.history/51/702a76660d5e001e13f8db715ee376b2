@@ -105,6 +105,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  display7SEG(counter1);
 	  switch (state) {
 	  case RED1_GREEN2:
 		  if(counter2 <= 0) {
@@ -158,7 +159,6 @@ int main(void)
 	  }
 	  counter1 = counter1 - 1;
 	  counter2 = counter2 - 1;
-	  display7SEG(counter1);
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
